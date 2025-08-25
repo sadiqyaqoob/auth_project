@@ -3,16 +3,16 @@ import mongoose, { Schema } from "mongoose";
 const userSchema = new Schema({
   name: {
     type: String,
-    require: true,
+    required: true,
   },
   email: {
     type: String,
-    require: true,
+    required: true,
     unique: true,
   },
   password: {
     type: String,
-    require: true,
+    required: true,
   },
   verifyOtp: {
     type: String,
@@ -26,20 +26,16 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  verifyOtp: {
+  resetPasswordOtp: {
     type: String,
     default: '',
   },
-  resetOtp: {
-    type: String,
-    default: '',
-  },
-  resetOtpExpireAt: {
-    type: String,
+  resetPasswordOtpExpireAt: {
+    type: Number,
     default: 0,
   },
 });
 
-const userModel = mongoose.models.user || mongoose.model('user',userSchema)
+const userModel = mongoose.models.user || mongoose.model('user', userSchema);
 
-export default userModel
+export default userModel;
