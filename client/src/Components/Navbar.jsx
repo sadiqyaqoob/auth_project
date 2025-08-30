@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../context/AppContext"
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const {userdata , backendUrl , setUserData , setisLoggedin} = useContext(AppContext)
   return (
     <div className="w-full flex justify-between items-center p-4 sm:p-6 sm:px-24 absolute top-0 ">
       <img src={assets.logo} alt="" className="w-28 sm:w-32 " />
